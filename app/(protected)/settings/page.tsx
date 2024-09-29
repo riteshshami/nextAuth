@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useState, useTransition } from "react";
 import { SettingsSchema } from "@/schemas";
 import { useSession } from "next-auth/react";
-import { Form, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import {
   FormControl,
   FormDescription,
@@ -71,7 +71,7 @@ const SettingsPage = () => {
         <p className="text-2xl font-semibold text-center">Settings</p>
       </CardHeader>
       <CardContent>
-        <Form {...form}>
+        <FormProvider {...form}>
           <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
             <div className="space-y-4 ">
               <FormField
@@ -203,7 +203,7 @@ const SettingsPage = () => {
               Save
             </Button>
           </form>
-        </Form>
+        </FormProvider>
       </CardContent>
     </Card>
   );
